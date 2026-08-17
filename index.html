@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090711">
+  <meta name="description" content="Zulti Earn Hub — an independent informational community page about Zulti, its features, and referral program."
+  <meta name="robots" content="index,follow">
+  <title>Zulti Earn Hub — Learn • Understand • Grow</title>
+  <style>
+    :root{
+      --bg:#08070d;--surface:#11101a;--surface-2:#171522;--text:#f7f4ff;--muted:#aaa5b8;
+      --purple:#8b5cf6;--violet:#a855f7;--pink:#ec4899;--gold:#f6c453;--line:rgba(255,255,255,.09);
+      --max:1120px;--radius:24px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),calc(100% - 32px));margin:auto}
+    .nav{position:fixed;inset:0 0 auto;z-index:20;background:rgba(8,7,13,.72);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:.25s}
+    .nav.scrolled{border-color:var(--line);background:rgba(8,7,13,.9)}
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.3px}
+    .brand-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--purple),var(--pink));box-shadow:0 8px 30px rgba(139,92,246,.35);font-weight:1000}
+    .brand small{display:block;color:#b9b1ca;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-top:-2px}
+    .nav-links{display:flex;align-items:center;gap:22px;color:#c9c4d3;font-size:14px;font-weight:700}
+    .nav-links a:hover{color:#fff}
+    .nav-pill{padding:10px 15px;border:1px solid var(--line);border-radius:12px;background:#ffffff08}
+    .hero{position:relative;min-height:760px;display:grid;align-items:center;overflow:hidden;padding:130px 0 90px;background:radial-gradient(circle at 50% 5%,rgba(139,92,246,.24),transparent 34%),linear-gradient(180deg,#0b0912 0%,#08070d 100%)}
+    .orb{position:absolute;border-radius:999px;filter:blur(2px);pointer-events:none;opacity:.45}
+    .orb.one{width:320px;height:320px;left:-150px;top:160px;background:radial-gradient(circle,rgba(168,85,247,.7),transparent 70%)}
+    .orb.two{width:360px;height:360px;right:-180px;bottom:-30px;background:radial-gradient(circle,rgba(236,72,153,.42),transparent 70%)}
+    .grid-glow{position:absolute;inset:0;opacity:.28;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+    .hero-content{position:relative;z-index:2;max-width:900px;text-align:center;margin:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid rgba(168,85,247,.3);border-radius:999px;background:rgba(168,85,247,.08);color:#d9c6ff;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase}
+    .dot{width:7px;height:7px;border-radius:50%;background:#c084fc;box-shadow:0 0 14px #c084fc}
+    h1{font-size:clamp(52px,9vw,104px);line-height:.92;letter-spacing:-5px;margin:24px 0 20px;font-weight:1000}
+    .gradient{background:linear-gradient(100deg,#fff 10%,#d8b4fe 48%,#f9a8d4 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:720px;margin:auto;color:#bbb5c8;font-size:clamp(17px,2.2vw,20px)}
+    .hero-note{margin:26px auto 0;max-width:700px;padding:14px 18px;border:1px solid rgba(246,196,83,.2);border-radius:16px;background:rgba(246,196,83,.055);color:#ddd0a7;font-size:14px}
+    .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 20px;border-radius:14px;font-weight:900;border:1px solid var(--line);transition:transform .2s,box-shadow .2s,background .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(135deg,var(--purple),var(--pink));box-shadow:0 15px 40px rgba(139,92,246,.25)}
+    .btn-secondary{background:#ffffff07;color:#eeeaf5}
+    .section{padding:88px 0}
+    .section.alt{background:#0c0b13;border-top:1px solid rgba(255,255,255,.035);border-bottom:1px solid rgba(255,255,255,.035)}
+    .section-head{max-width:720px;margin:0 auto 44px;text-align:center}
+    .kicker{color:#c084fc;text-transform:uppercase;letter-spacing:1.8px;font-size:11px;font-weight:950}
+    h2{font-size:clamp(34px,5vw,54px);line-height:1.05;letter-spacing:-2px;margin:10px 0 14px}
+    .section-head p{color:var(--muted);margin:0;font-size:17px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{position:relative;padding:28px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));box-shadow:0 18px 50px rgba(0,0,0,.18)}
+    .card:before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at top left,rgba(168,85,247,.11),transparent 45%);pointer-events:none}
+    .icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#a855f715;border:1px solid #a855f725;font-size:22px;margin-bottom:20px}
+    .card h3{margin:0 0 8px;font-size:21px;letter-spacing:-.4px}.card p{margin:0;color:var(--muted);font-size:15px}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .step{padding:22px 18px;border:1px solid var(--line);border-radius:20px;background:#ffffff03}
+    .number{font-size:12px;font-weight:950;color:#c084fc;letter-spacing:1px}.step h3{font-size:17px;margin:10px 0 6px}.step p{font-size:14px;color:var(--muted);margin:0}
+    .reward{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:32px;border:1px solid rgba(246,196,83,.18);border-radius:28px;background:linear-gradient(135deg,rgba(246,196,83,.08),rgba(168,85,247,.06));}
+    .reward-label{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#d9c58e;font-weight:950}.reward h3{font-size:clamp(28px,4vw,46px);margin:5px 0}.reward p{color:var(--muted);margin:0;max-width:700px}.reward-value{font-size:clamp(34px,6vw,62px);font-weight:1000;color:var(--gold);white-space:nowrap}
+    .community{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:stretch}.community-main{padding:38px;border-radius:28px;background:linear-gradient(135deg,#211236,#120d1d);border:1px solid rgba(168,85,247,.22)}.community-main p{color:#bcb4c7;max-width:650px}.community-side{padding:30px;border-radius:28px;border:1px solid var(--line);background:#ffffff03}.community-side ul{padding:0;margin:18px 0 0;list-style:none}.community-side li{padding:10px 0;border-bottom:1px solid var(--line);color:#c3bdca}.community-side li:last-child{border:0}
+    .trust{display:grid;grid-template-columns:1fr 1fr;gap:18px}.notice{padding:28px;border-radius:22px;border:1px solid var(--line);background:#ffffff03}.notice h3{margin-top:0}.notice p,.notice li{color:var(--muted);font-size:15px}.notice ul{padding-left:20px}
+    .final{text-align:center;padding:100px 0}.final-box{padding:54px 24px;border:1px solid rgba(168,85,247,.2);border-radius:32px;background:radial-gradient(circle at 50% 0,rgba(139,92,246,.16),transparent 58%),#0d0b14}.final-box p{max-width:650px;margin:0 auto 25px;color:var(--muted)}
+    footer{padding:30px 0 45px;border-top:1px solid var(--line);color:#777181;font-size:12px;text-align:center}.footer-inner{max-width:850px;margin:auto}.footer-inner strong{color:#a9a2b4}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
+    @media(max-width:900px){.cards{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.community,.trust{grid-template-columns:1fr}.reward{grid-template-columns:1fr}.reward-value{white-space:normal}}
+    @media(max-width:640px){.container{width:min(var(--max),calc(100% - 22px))}.nav-links a:not(.nav-pill){display:none}.nav-inner{height:64px}.hero{min-height:700px;padding:105px 0 65px}h1{letter-spacing:-3px}.hero-actions .btn{width:100%}.cards,.steps{grid-template-columns:1fr}.section{padding:68px 0}.card{padding:24px}.community-main,.community-side,.notice{padding:25px}.reward{padding:25px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Zulti Earn Hub home"><span class="brand-mark">Z</span><span>ZULTI EARN HUB<small>Independent community page</small></span></a>
+      <div class="nav-links"><a href="#overview">Overview</a><a href="#how">How it works</a><a class="nav-pill" href="#eligibility">Eligibility</a></div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="orb one"></div><div class="orb two"></div><div class="grid-glow"></div>
+      <div class="container hero-content">
+        <div class="eyebrow"><span class="dot"></span> Independent Zulti community guide</div>
+        <h1>Understand Zulti.<br><span class="gradient">Make informed choices.</span></h1>
+        <p class="hero-copy">A clean, independent place to learn about Zulti's features, understand how its referral program is described, and review the important eligibility and safety information before participating.</p>
+        <div class="hero-note"><strong>Important:</strong> Zulti's published terms referenced by this page state that users must be 18 or older. This page does not encourage anyone who is ineligible to participate.</div>
+        <div class="hero-actions"><a class="btn btn-primary" href="#overview">Explore the guide ↓</a><a class="btn btn-secondary" href="#eligibility">Read eligibility</a></div>
+      </div>
+    </header>
+
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">The big picture</div><h2>Everything important, without the hype.</h2><p>The goal is simple: explain the platform and referral concept clearly while separating confirmed information from expectations.</p></div>
+        <div class="cards">
+          <article class="card reveal"><div class="icon">💎</div><h3>XP & Gems</h3><p>The supplied project material describes XP and gems as features users can collect through eligible platform activities.</p></article>
+          <article class="card reveal"><div class="icon">🤝</div><h3>Referrals</h3><p>The referral program is presented as a way to receive rewards for confirmed referrals, subject to Zulti's rules and eligibility.</p></article>
+          <article class="card reveal"><div class="icon">🧭</div><h3>Learn First</h3><p>Understand the platform, its requirements and its rules before deciding whether participation is appropriate for you.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="how">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">A simple path</div><h2>How the experience is described.</h2><p>The original project notes describe these general stages. Exact requirements can change, so users should rely on Zulti's current rules.</p></div>
+        <div class="steps">
+          <article class="step reveal"><div class="number">01 / CHECK</div><h3>Review eligibility</h3><p>Confirm that you meet Zulti's current age and jurisdiction requirements.</p></article>
+          <article class="step reveal"><div class="number">02 / JOIN</div><h3>Create an account</h3><p>Use the official platform and provide the information it requests.</p></article>
+          <article class="step reveal"><div class="number">03 / VERIFY</div><h3>Complete verification</h3><p>Follow any account verification steps requested by the platform.</p></article>
+          <article class="step reveal"><div class="number">04 / EXPLORE</div><h3>Learn the features</h3><p>Explore the features available to your account and understand how they work.</p></article>
+          <article class="step reveal"><div class="number">05 / REFER</div><h3>Understand referrals</h3><p>If eligible, review the current referral rules before sharing anything.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rewards">
+      <div class="container">
+        <div class="reward reveal">
+          <div><div class="reward-label">Referral information from the supplied project material</div><h3>Up to $1 USD per confirmed referral</h3><p>This is not a guaranteed payment. The original page explicitly describes the amount as “up to $1” and says rewards are subject to Zulti's rules and eligibility.</p></div>
+          <div class="reward-value">UP TO<br>$1</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="community">
+      <div class="container community">
+        <div class="community-main reveal"><div class="kicker">Community</div><h2>Build understanding, not pressure.</h2><p>A healthy community should help people understand the platform, compare information, ask sensible questions and avoid exaggerated promises. No one should feel pressured to participate.</p></div>
+        <aside class="community-side reveal"><strong>Good community habits</strong><ul><li>✓ Share accurate information</li><li>✓ Be clear about eligibility</li><li>✓ Never promise guaranteed income</li><li>✓ Respect platform rules</li><li>✓ Protect account credentials</li></ul></aside>
+      </div>
+    </section>
+
+    <section class="section" id="eligibility">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">Before participating</div><h2>Trust & eligibility first.</h2><p>These safeguards are part of the project's original requirements and should remain visible.</p></div>
+        <div class="trust">
+          <article class="notice reveal"><h3>Eligibility matters</h3><ul><li>The supplied project material states that Zulti's terms require users to be 18 or older.</li><li>Availability may depend on jurisdiction.</li><li>Do not use a VPN or another method to bypass geographic restrictions.</li><li>Do not create multiple accounts or engage in account farming.</li></ul></article>
+          <article class="notice reveal"><h3>Protect your account</h3><ul><li>Never give another person your password or OTP.</li><li>Never share seed phrases or private wallet credentials.</li><li>Be cautious of people claiming to guarantee rewards or profits.</li><li>Check Zulti's current official terms before participating.</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="container"><div class="final-box reveal"><div class="kicker">Independent by design</div><h2>This is Zulti Earn Hub.</h2><p>An independent informational/community page. It is not the official Zulti website and does not claim to represent Zulti as an agent or partner.</p><a class="btn btn-secondary" href="#top">Back to top ↑</a></div></div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><strong>Zulti Earn Hub</strong> is an independent informational/community page. It is not the official Zulti website and does not represent Zulti as an agent or partner. Information on this page is based on the supplied project material and may become outdated; check Zulti's current official rules before making decisions.</div></footer>
+
+  <script>
+    const nav=document.getElementById('nav');
+    const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>10);
+    onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+    const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
